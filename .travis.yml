@@ -12,7 +12,7 @@ group:
 
 before_install:
     - sudo apt-get update -qq
-    - sudo apt-get install -qq curl git grep pcregrep sed
+    - sudo apt-get install -qq curl git grep pcregrep sed libcurl4-openssl-dev libelf-dev libdw-dev cmake gcc binutils-dev libiberty-dev zlib1g-dev
     - sudo pip install bashate
 
 script:
@@ -25,8 +25,20 @@ script:
 matrix:
     fast_finish:   true
 
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+after_success: |
+  wget https://github.com/SimonKagstrom/kcov/archive/master.tar.gz &&
+  tar xzf master.tar.gz &&
+  cd kcov-master &&
+  mkdir build &&
+  cd build &&
+  sudo cmake .. &&
+  sudo make &&
+  sudo make install &&
+  cd ../.. &&
+  rm -rf kcov-master &&
+  mkdir -p coverage &&
+  kcov coverage sudo bash ./main.sh -t &&
+  bash <(curl -s https://codecov.io/bash)
 
 notifications:
     webhooks:      https://www.travisbuddy.com/
