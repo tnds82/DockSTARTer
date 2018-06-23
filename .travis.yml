@@ -26,7 +26,7 @@ matrix:
     fast_finish:   true
 
 after_success: |
-  kcov coverage sudo bash ./main.sh -t &&
+  kcov coverage $(sudo bash ./main.sh -t) &&
   bash <(curl -s https://codecov.io/bash)
 
 notifications:
