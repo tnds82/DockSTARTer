@@ -14,19 +14,19 @@ before_install:
     - sudo apt-get update -qq
     - sudo apt-get install -qq curl git grep pcregrep sed kcov
     - sudo pip install bashate
+    - kcov coverage ./tests/run_kcov.sh
 
-script:
-    - sudo bash ./main.sh -xt validate_newline
-    - sudo bash ./main.sh -xt validate_bashate
-    - sudo bash ./main.sh -xt validate_shellcheck
-    - sudo bash ./main.sh -xt run_install
-    - sudo bash ./main.sh -xt run_generate
+# script:
+#     - sudo bash ./main.sh -xt validate_newline
+#     - sudo bash ./main.sh -xt validate_bashate
+#     - sudo bash ./main.sh -xt validate_shellcheck
+#     - sudo bash ./main.sh -xt run_install
+#     - sudo bash ./main.sh -xt run_generate
 
 matrix:
     fast_finish:   true
 
 after_success: |
-  kcov coverage ${SCRIPTPATH}/tests/run_kcov.sh &&
   bash <(curl -s https://codecov.io/bash)
 
 notifications:
