@@ -26,7 +26,7 @@ matrix:
     fast_finish:   true
 
 after_success: |
-  kcov coverage ./tests/run_kcov.sh &&
+  kcov coverage --bash-method=DEBUG ./tests/run_kcov.sh &&
   bash <(curl -s https://codecov.io/bash)
 
 notifications:
