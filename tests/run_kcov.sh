@@ -16,3 +16,5 @@ run_install
 
 source "./tests/run_generate.sh"
 run_generate
+
+echo "Finished"
