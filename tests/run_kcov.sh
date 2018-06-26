@@ -2,8 +2,8 @@
 # set -euo pipefail
 # IFS=$'\n\t'
 
-# source "./tests/validate_newline.sh"
-# validate_newline
+source "./tests/validate_newline.sh"
+validate_newline
 
 # source "./tests/validate_bashate.sh"
 # validate_bashate
