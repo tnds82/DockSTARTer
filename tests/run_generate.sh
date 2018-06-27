@@ -5,9 +5,6 @@ IFS=$'\n\t'
 run_generate() {
     cp "${SCRIPTPATH}/compose/.env.example" "${SCRIPTPATH}/compose/.env"
     sed -i 's/_ENABLED=false/_ENABLED=true/' "${SCRIPTPATH}/compose/.env"
-    #sed -i 's/EMBY_ENABLED=true/EMBY_ENABLED=false/' "${SCRIPTPATH}/compose/.env"
-    sed -i 's/^\s*devices\:$//' "${SCRIPTPATH}/compose/.apps/emby/emby.yml"
-    sed -i 's/^.*renderD128.*$//' "${SCRIPTPATH}/compose/.apps/emby/emby.yml"
     sed -i 's/DELUGEVPN_PORT_58846=58846/DELUGEVPN_PORT_58846=58847/' "${SCRIPTPATH}/compose/.env"
     sed -i 's/DELUGEVPN_PORT_58946=58946/DELUGEVPN_PORT_58946=58947/' "${SCRIPTPATH}/compose/.env"
     sed -i 's/DELUGEVPN_PORT_8112=8112/DELUGEVPN_PORT_8112=18112/' "${SCRIPTPATH}/compose/.env"
