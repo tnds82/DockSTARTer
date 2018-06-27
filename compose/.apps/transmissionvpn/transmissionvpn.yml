@@ -22,6 +22,8 @@ services:
       - ${DOWNLOADSDIR}:/downloads
     cap_add:
       - NET_ADMIN
+    devices:
+      - /dev/net/tun
     dns:
       - 1.1.1.1
       - 1.0.0.1
