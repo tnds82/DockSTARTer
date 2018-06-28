@@ -6,6 +6,7 @@ services:
     restart:         always
     environment:
       - LAN_NETWORK=${LAN_NETWORK}
+      - NAME_SERVERS=${NS1},${NS2}
       - PGID=${PGID}
       - PUID=${PUID}
       - TZ=${TZ}

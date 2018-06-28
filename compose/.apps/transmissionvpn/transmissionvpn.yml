@@ -25,5 +25,5 @@ services:
     devices:
       - /dev/net/tun
     dns:
-      - 1.1.1.1
-      - 1.0.0.1
+      - ${NS1}
+      - ${NS2}

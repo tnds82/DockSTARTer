@@ -6,6 +6,7 @@ services:
     restart:         always
     environment:
       - LAN_NETWORK=${LAN_NETWORK}
+      - NAME_SERVERS=${NS1},${NS2}
       - PGID=${PGID}
       - PUID=${PUID}
       - TZ=${TZ}
@@ -20,6 +21,3 @@ services:
       - ${DOWNLOADSDIR}:/downloads
     cap_add:
       - NET_ADMIN
-    dns:
-      - 1.1.1.1
-      - 1.0.0.1
