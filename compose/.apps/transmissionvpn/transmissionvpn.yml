@@ -1,7 +1,7 @@
 version:             "3.6"
 services:
   transmissionvpn:
-    image:           haugene/transmission-openvpn:latest-alpine
+    image:           haugene/transmission-openvpn
     container_name:  transmissionvpn
     restart:         always
     environment:
