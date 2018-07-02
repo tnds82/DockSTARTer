@@ -21,6 +21,6 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${DOCKERCONFDIR}/rtorrentvpn:/config
-      - ${DOWNLOADSDIR}:/downloads
+      - ${DOWNLOADSDIR}:/data
     cap_add:
       - NET_ADMIN

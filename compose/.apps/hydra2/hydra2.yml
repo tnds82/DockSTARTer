@@ -10,4 +10,5 @@ services:
       - TZ=${TZ}
     volumes:
       - ${DOCKERCONFDIR}/hydra2:/config
+      - ${DOWNLOADSDIR}:/data
       - ${DOWNLOADSDIR}:/downloads

@@ -10,4 +10,5 @@ services:
       - TZ=${TZ}
     volumes:
       - ${DOCKERCONFDIR}/jackett:/config
+      - ${DOWNLOADSDIR}:/data
       - ${DOWNLOADSDIR}:/downloads
