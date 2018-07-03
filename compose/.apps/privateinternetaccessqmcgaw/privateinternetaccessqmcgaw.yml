@@ -1,0 +1,24 @@
+services:
+  privateinternetaccessqmcgaw:
+    image: qmcgaw/private-internet-access
+    container_name: privateinternetaccessqmcgaw
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    networks:
+      - pianet
+    volumes:
+      - ${DOCKERCONFDIR}/privateinternetaccessqmcgaw/auth.conf:/auth.conf:ro
+    environment:
+      - PROTOCOL=tcp
+      - ENCRYPTION=strong
+      - REGION=Germany
+      - PGID=${PGID}
+      - PUID=${PUID}
+      - TZ=${TZ}
+    restart:         always
+networks:
+  pianet:
+    external: true
+
